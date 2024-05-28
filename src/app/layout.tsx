@@ -3,11 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 
 import { getGlobalPageData } from '@/data/loaders';
-import dynamic from 'next/dynamic';
-
-const Header = dynamic(() => import('../components/custom/Header'), {
-  ssr: false,
-});
+import Header from '@/components/custom/Header';
 
 const inter = Inter({ subsets: ['latin'] });
 

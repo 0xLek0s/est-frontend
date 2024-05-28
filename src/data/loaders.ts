@@ -1,24 +1,16 @@
 import qs from 'qs';
 import { flattenAttributes, getStrapiURL } from '@/lib/utils';
-import { cache } from 'react';
 
 const baseUrl = getStrapiURL();
 
 async function fetchData(url: string) {
-  const headers = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-
   try {
-    const response = await fetch(url, headers);
+    const response = await fetch(url, { cache: 'no-store' });
     const data = await response.json();
     return flattenAttributes(data);
   } catch (error) {
     console.error('Error fetching data:', error);
-    throw error; // or return null;
+    throw error;
   }
 }
 
@@ -29,12 +21,18 @@ export async function getHomePageData() {
     populate: {
       blocks: {
         populate: {
-          logo: {
-            fields: ['url', 'alternativeText'],
+          logo: { fields: ['url', 'alternativeText'] },
+          links: { populate: true },
+          carousel: {
+            populate: {
+              images: { fields: ['url', 'alternativeText'] },
+            },
           },
-          links: {
-            populate: true,
-          },
+          espaceEtudiant: { populate: '*' },
+          actualites: { populate: '*' },
+          evenements: { populate: '*' },
+          recrutements: { populate: '*' },
+          appelOffres: { populate: '*' },
         },
       },
     },

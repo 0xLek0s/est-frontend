@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Menu } from './Menu';
+import { StrapiImage } from './StrapiImage';
 
 interface LogoProps {
   id: number;
