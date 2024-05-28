@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Button } from '../ui/button'
 import { Menu } from './Menu'
 import { StrapiImage } from './StrapiImage'
+import { Input } from '../ui/input'
 
 interface LogoProps {
   id: number
@@ -26,24 +27,23 @@ interface HeroSectionProps {
 
 export function HeroSection({ data }: Readonly<HeroSectionProps>) {
   const { logo, links } = data
-  const imageUrl = 'http://localhost:1337' + logo.url
   return (
     <>
-      <section className="flex justify-between items-center bg-black">
+      <section className="flex justify-between items-center bg-slate-100 gap-5">
         <div className="logo">
-          <img
-            src={imageUrl}
-            alt={logo.alternativeText || 'Logo'}
-            style={{ width: '420px' }}
+          <StrapiImage
+            src={logo.url}
+            alt={logo.alternativeText}
+            width={420}
+            height={320}
           />
         </div>
-        <div className="search flex gap-2">
-          <input
-            type="text"
-            placeholder="Recherche"
-            className="p-2 border rounded-md"
-          />
-          <Button>Rechercher</Button>
+        <div></div>
+        <div className="search flex gap-2 w-1/2 p-8">
+          <Input type="text" placeholder="" className="h-10 w-full" />
+          <Button className="h-10 bg-est-primary font-medium">
+            Rechercher
+          </Button>
         </div>
       </section>
       <Menu data={{ links }} />
