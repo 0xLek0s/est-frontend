@@ -1,32 +1,32 @@
-import Link from 'next/link';
-import { Button } from '../ui/button';
-import { Menu } from './Menu';
-import { StrapiImage } from './StrapiImage';
+import Link from 'next/link'
+import { Button } from '../ui/button'
+import { Menu } from './Menu'
+import { StrapiImage } from './StrapiImage'
 
 interface LogoProps {
-  id: number;
-  url: string;
-  alternativeText: string;
+  id: number
+  url: string
+  alternativeText: string
 }
 
 interface LinkProps {
-  id: number;
-  url: string;
-  text: string;
+  id: number
+  url: string
+  text: string
 }
 
 interface HeroSectionProps {
   data: {
-    id: number;
-    __component: string;
-    logo: LogoProps;
-    links: LinkProps[];
-  };
+    id: number
+    __component: string
+    logo: LogoProps
+    links: LinkProps[]
+  }
 }
 
 export function HeroSection({ data }: Readonly<HeroSectionProps>) {
-  const { logo, links } = data;
-  const imageUrl = 'http://localhost:1337' + logo.url;
+  const { logo, links } = data
+  const imageUrl = 'http://localhost:1337' + logo.url
   return (
     <>
       <section className="flex justify-between items-center bg-black">
@@ -34,7 +34,7 @@ export function HeroSection({ data }: Readonly<HeroSectionProps>) {
           <img
             src={imageUrl}
             alt={logo.alternativeText || 'Logo'}
-            style={{ width: '200px' }}
+            style={{ width: '420px' }}
           />
         </div>
         <div className="search flex gap-2">
@@ -48,5 +48,5 @@ export function HeroSection({ data }: Readonly<HeroSectionProps>) {
       </section>
       <Menu data={{ links }} />
     </>
-  );
+  )
 }

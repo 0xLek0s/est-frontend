@@ -3,8 +3,8 @@ import EspaceEtudiant from './EspaceEtudiant'
 import Onglet from './Onglet'
 
 interface OngletProps {
-  title: string;
-  links: Object;
+  title: string
+  links: Object
 }
 
 interface ImageProps {
@@ -35,27 +35,33 @@ interface EspaceEtudiantProps {
 interface BodyProps {
   data: {
     carousel: CarouselProps
-    espaceEtudiant: EspaceEtudiantProps,
-    actualites: OngletProps,
-    evenements: OngletProps,
-    recrutements: OngletProps,
+    espaceEtudiant: EspaceEtudiantProps
+    actualites: OngletProps
+    evenements: OngletProps
+    recrutements: OngletProps
     appelOffres: OngletProps
   }
 }
 
 export default function Body({ data }: Readonly<BodyProps>) {
-  const { carousel, espaceEtudiant, actualites, evenements, recrutements, appelOffres } = data
+  const {
+    carousel,
+    espaceEtudiant,
+    actualites,
+    evenements,
+    recrutements,
+    appelOffres,
+  } = data
   const images = carousel.images.data
-  console.log(actualites.links);
+
   return (
-    <div className='grid grid-cols-2 gap-20 mr-20 ml-20 mt-10'>
+    <div className="grid grid-cols-2 gap-20 items-stretch justify-items-center">
       <HomeCarousel data={{ images }} />
       <EspaceEtudiant data={espaceEtudiant} />
-      <Onglet title={actualites.title} list={actualites.links} />
+      {/* <Onglet title={actualites.title} list={actualites.links} />
       <Onglet title={evenements.title} list={evenements.links} />
       <Onglet title={recrutements.title} list={recrutements.links} />
-      <Onglet title={appelOffres.title} list={appelOffres.links} />
-
+      <Onglet title={appelOffres.title} list={appelOffres.links} /> */}
     </div>
   )
 }

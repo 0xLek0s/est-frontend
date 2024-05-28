@@ -17,8 +17,6 @@ export default async function Home() {
   const strapiData = await getHomePageData()
 
   const { blocks } = strapiData
-  console.log(blocks);
-  //   console.dir(blocks, { depth: null });
   if (!blocks) return <p>No sections found</p>
 
   return <main>{blocks.map(blockRenderer)}</main>
