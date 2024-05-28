@@ -34,7 +34,7 @@ export function HeroSection({ data }: Readonly<HeroSectionProps>) {
           <StrapiImage
             src={logo.url}
             alt={logo.alternativeText}
-            width={420}
+            width={320}
             height={320}
           />
         </div>
