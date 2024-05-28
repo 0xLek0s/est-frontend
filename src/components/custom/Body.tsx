@@ -2,9 +2,58 @@ import HomeCarousel from './HomeCarousel'
 import EspaceEtudiant from './EspaceEtudiant'
 import Onglet from './Onglet'
 
-interface OngletProps {
+interface AcutalitesProps {
+  id: number
   title: string
-  links: Object
+  actualites: {
+    data: {
+      id: number
+      titre: string
+      date: string
+      publishedAt: string
+      description: Object
+    }[]
+  }
+}
+
+interface AppelOffresProps {
+  id: number
+  title: string
+  appelOffres: {
+    data: {
+      id: number
+      titre: string
+      publishedAt: string
+    }[]
+  }
+}
+
+interface RecrutementsProps {
+  id: number
+  title: string
+  recrutements: {
+    data: {
+      id: number
+      titre: string
+      distance: boolean
+      publishedAt: string
+      salaire: number
+    }[]
+  }
+}
+
+interface EvenementsProps {
+  id: number
+  title: string
+  evenements: {
+    data: {
+      id: number
+      titre: string
+      date: string
+      publishedAt: string
+      description: Object
+    }[]
+  }
 }
 
 interface ImageProps {
@@ -36,10 +85,10 @@ interface BodyProps {
   data: {
     carousel: CarouselProps
     espaceEtudiant: EspaceEtudiantProps
-    actualites: OngletProps
-    evenements: OngletProps
-    recrutements: OngletProps
-    appelOffres: OngletProps
+    actualites: AcutalitesProps
+    evenements: EvenementsProps
+    recrutements: RecrutementsProps
+    appelOffres: AppelOffresProps
   }
 }
 
@@ -52,16 +101,44 @@ export default function Body({ data }: Readonly<BodyProps>) {
     recrutements,
     appelOffres,
   } = data
+  const evenementsList = evenements.evenements.data
+  const recrutementsList = recrutements.recrutements.data
+  const appelOffresList = appelOffres.appelOffres.data
+  const acutalitesList = actualites.actualites.data
   const images = carousel.images.data
 
   return (
     <div className="grid grid-cols-2 gap-20 items-stretch justify-items-center">
       <HomeCarousel data={{ images }} />
       <EspaceEtudiant data={espaceEtudiant} />
-      {/* <Onglet title={actualites.title} list={actualites.links} />
-      <Onglet title={evenements.title} list={evenements.links} />
-      <Onglet title={recrutements.title} list={recrutements.links} />
-      <Onglet title={appelOffres.title} list={appelOffres.links} /> */}
+      <Onglet
+        data={{
+          id: actualites.id,
+          title: actualites.title,
+          list: acutalitesList,
+        }}
+      />
+      <Onglet
+        data={{
+          id: evenements.id,
+          title: evenements.title,
+          list: evenementsList,
+        }}
+      />
+      <Onglet
+        data={{
+          id: recrutements.id,
+          title: recrutements.title,
+          list: recrutementsList,
+        }}
+      />
+      <Onglet
+        data={{
+          id: appelOffres.id,
+          title: appelOffres.title,
+          list: appelOffresList,
+        }}
+      />
     </div>
   )
 }
