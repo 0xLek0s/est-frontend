@@ -29,12 +29,12 @@ export function HeroSection({ data }: Readonly<HeroSectionProps>) {
   const imageUrl = 'http://localhost:1337' + logo.url;
   return (
     <>
-      <section className="flex justify-between items-center">
+      <section className="flex justify-between items-center bg-black">
         <div className="logo">
           <img
             src={imageUrl}
             alt={logo.alternativeText || 'Logo'}
-            className="w-auto"
+            style={{ width: '200px' }}
           />
         </div>
         <div className="search flex gap-2">

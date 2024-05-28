@@ -23,7 +23,7 @@ interface HomeCarouselProps {
 export default function HomeCarousel({ data }: Readonly<HomeCarouselProps>) {
   const { images } = data
   return (
-    <Carousel className="w-full max-w-xs">
+    <Carousel className="">
       <CarouselContent>
         {images.map((image) => (
           <CarouselItem>
@@ -32,7 +32,7 @@ export default function HomeCarousel({ data }: Readonly<HomeCarouselProps>) {
               src={image.url}
               alt={image.alternativeText}
               height={400}
-              width={800}
+              width={10000}
             />
           </CarouselItem>
         ))}

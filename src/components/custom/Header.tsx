@@ -29,8 +29,8 @@ interface HeaderProps {
 export default function Header({ data }: Readonly<HeaderProps>) {
   const { contact, socials } = data;
   return (
-    <div className="flex items-center justify-between">
-      <div>{contact}</div>
+    <div className="flex items-center justify-around bg-slate-400">
+      <div className="font-bold">{contact}</div>
       <div className="flex items-center justify-center gap-1">
         {socials.map((social) => (
           <a

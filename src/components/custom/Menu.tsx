@@ -16,10 +16,10 @@ export function Menu({ data }: Readonly<MenuProps>) {
   const { links } = data;
   return (
     <nav className="menu">
-      <ul className="flex space-x-4">
+      <ul className="flex space-x-4 justify-center bg-slate-300">
         {links.map((link) => (
           <li key={link.id}>
-            <Link className="text-blue-500 hover:underline" href={link.url}>
+            <Link className="text-blue-500 hover:underline font-bold" href={link.url}>
               {link.text}
             </Link>
           </li>

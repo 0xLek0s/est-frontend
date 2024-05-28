@@ -37,9 +37,9 @@ export default function Body({ data }: Readonly<BodyProps>) {
   const { carousel, espaceEtudiant } = data
   const images = carousel.images.data
   return (
-    <>
-      <EspaceEtudiant data={espaceEtudiant} />
+    <div className='grid grid-cols-2 gap-20 mr-20 ml-20 mt-10'>
       <HomeCarousel data={{ images }} />
-    </>
+      <EspaceEtudiant data={espaceEtudiant} />
+    </div>
   )
 }
