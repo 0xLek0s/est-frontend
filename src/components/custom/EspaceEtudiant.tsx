@@ -17,11 +17,16 @@ export default function EspaceEtudiant({
   const { title, links } = data
   return (
     <div className="flex justify-center items-center flex-col gap-2">
-      <h2 className="font-bold text-4xl">{title}</h2>
-      <ul className="border-black border-solid border-2 rounded p-5 inline-block list-none">
+      <h2 className="font-bold uppercase tracking-tight text-xl text-est-secondary">
+        {title}
+      </h2>
+      <ul className="border-est-secondary border-solid border-2 p-8 inline-block list-none bg-est-secondary text-xl">
         {links.map((link) => (
-          <li key={link.id} className="text-2xl">
-            <a className="hover:underline" href={link.url}>
+          <li
+            key={link.id}
+            className="hover:bg-est-primary p-1 text-est-primary-text hover:cursor-pointer"
+          >
+            <a href={link.url} className="p-2">
               {link.text}
             </a>
           </li>

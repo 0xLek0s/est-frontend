@@ -36,10 +36,14 @@ export default function Header({ data }: Readonly<HeaderProps>) {
       <div className="flex flex-row gap-2">
         <MailIcon />
         <p className="font-medium text-est-primary-text cursor-pointer">
-          <a href={'mailto:' + contact}>{contact}</a>
+          <a href={'mailto:' + contact}>
+            Contactez nous ici :{' '}
+            <span className="text-est-secondary font-bold">{contact}</span>
+          </a>
         </p>
       </div>
       <div className="flex items-center justify-center gap-3">
+        <span className="text-est-secondary font-bold">Suivez nous sur :</span>
         {socials.map((social) => (
           <a
             key={social.id}

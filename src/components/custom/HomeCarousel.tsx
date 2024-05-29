@@ -27,10 +27,10 @@ export default function HomeCarousel({ data }: Readonly<HomeCarouselProps>) {
   const { images } = data
   return (
     <Carousel
-      className="ml-16 mt-6 mb-6 border-2"
+      className="ml-16 mt-6 mb-6 border-2 rounded"
       plugins={[
         Autoplay({
-          delay: 2500,
+          delay: 3000,
         }),
       ]}
       opts={{

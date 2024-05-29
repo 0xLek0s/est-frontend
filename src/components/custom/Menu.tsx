@@ -38,7 +38,7 @@ export function Menu({ data }: Readonly<MenuProps>) {
       <ul className="flex justify-center items-center gap-12">
         {links.map((link) => (
           <li
-            className="text-est-primary-text font-bold p-2 text-center uppercase tracking-tight hover:bg-est-primary transition-colors"
+            className="text-est-primary-text font-bold p-2 text-center uppercase tracking-tight hover:bg-est-primary transition-colors hover:cursor-pointer"
             key={link.id}
           >
             <Link href={link.url}>{link.text}</Link>
