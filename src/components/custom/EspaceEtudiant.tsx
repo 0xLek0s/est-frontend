@@ -16,7 +16,7 @@ export default function EspaceEtudiant({
 }: Readonly<EspaceEtudiantProps>) {
   const { title, links } = data
   return (
-    <div className="flex justify-center items-center flex-col gap-2">
+    <div className="justify-self-center self-center flex justify-center items-center flex-col gap-2">
       <h2 className="font-bold uppercase tracking-tight text-xl text-est-secondary">
         {title}
       </h2>
