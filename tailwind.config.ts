@@ -20,6 +20,7 @@ const config = {
     extend: {
       colors: {
         'est-primary': '#239cb8',
+        'est-primary-bg': '#f8fcfd',
         'est-primary-text': '#d3ebf1',
         'est-secondary': '#083d59',
         'est-texts': '#3b5a72',

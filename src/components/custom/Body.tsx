@@ -108,7 +108,7 @@ export default function Body({ data }: Readonly<BodyProps>) {
   const images = carousel.images.data
 
   return (
-    <div className="grid grid-cols-2 gap-20 items-stretch justify-items-center">
+    <div className="grid grid-cols-2 gap-20 justify-items-center items-center bg-est-primary-bg pb-14">
       <HomeCarousel data={{ images }} />
       <EspaceEtudiant data={espaceEtudiant} />
       <Onglet

@@ -27,10 +27,10 @@ export default function HomeCarousel({ data }: Readonly<HomeCarouselProps>) {
   const { images } = data
   return (
     <Carousel
-      className="max-w-full"
+      className="ml-16 mt-6 mb-6 border-2"
       plugins={[
         Autoplay({
-          delay: 3000,
+          delay: 2500,
         }),
       ]}
       opts={{
@@ -45,12 +45,14 @@ export default function HomeCarousel({ data }: Readonly<HomeCarouselProps>) {
               key={image.id}
               src={image.url}
               alt={image.alternativeText}
-              height={600}
-              width={1200}
+              height={414}
+              width={736}
             />
           </CarouselItem>
         ))}
       </CarouselContent>
+      <CarouselNext />
+      <CarouselPrevious />
     </Carousel>
   )
 }
